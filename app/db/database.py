@@ -6,13 +6,23 @@ from app.core.config import get_settings
 settings = get_settings()
 
 connect_args = {}
+engine_kwargs = {}
+
 if settings.DATABASE_URL.startswith("sqlite"):
     connect_args["check_same_thread"] = False
+else:
+    # PostgreSQL connection pool tuning for serverless (Vercel)
+    engine_kwargs.update({
+        "pool_size": 5,
+        "max_overflow": 10,
+        "pool_pre_ping": True,  # verify connections before use
+    })
 
 engine = create_engine(
     settings.DATABASE_URL,
     connect_args=connect_args,
-    echo=False
+    echo=False,
+    **engine_kwargs
 )
 
 # Enable foreign keys for SQLite

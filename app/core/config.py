@@ -4,6 +4,22 @@ from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+def _resolve_database_url() -> str:
+    """Resolves the database URL, preferring Vercel/Supabase Postgres for production."""
+    # Prefer non-pooling URL: SQLAlchemy manages its own pool, so using
+    # pgbouncer-pooled URLs causes "prepared statement already exists" errors.
+    url = (
+        os.environ.get("POSTGRES_URL_NON_POOLING")
+        or os.environ.get("POSTGRES_URL")
+        or os.environ.get("DATABASE_URL")
+        or "sqlite:///./fitbuddy.db"
+    )
+    # SQLAlchemy requires 'postgresql://' not 'postgres://'
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql://", 1)
+    return url
+
+
 class Settings(BaseSettings):
     """Central application settings loaded from environment variables or .env file."""
 
@@ -15,7 +31,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "fitbuddy-dev-secret-key-change-in-production-1234567890"
 
     # Database
-    DATABASE_URL: str = "sqlite:///./fitbuddy.db"
+    DATABASE_URL: str = _resolve_database_url()
 
     # Google Gemini AI Settings
     GEMINI_API_KEY: Optional[str] = None
@@ -38,3 +54,4 @@ class Settings(BaseSettings):
 def get_settings() -> Settings:
     """Returns cached settings instance."""
     return Settings()
+

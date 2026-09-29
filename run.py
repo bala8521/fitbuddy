@@ -1,5 +1,6 @@
 import uvicorn
 from app.core.config import get_settings
+from app.main import app  # Vercel needs this at module level
 
 if __name__ == "__main__":
     settings = get_settings()
