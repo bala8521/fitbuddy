@@ -9,7 +9,10 @@ from app.services.feedback_service import FeedbackService
 from app.services.nutrition_service import NutritionService
 from app.schemas.user import UserCreate, FitnessGoalEnum, IntensityEnum, ExperienceLevelEnum
 
-templates = Jinja2Templates(directory="app/templates")
+from pathlib import Path
+
+TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 router = APIRouter(include_in_schema=False)
 
 

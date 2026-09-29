@@ -37,11 +37,17 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# Static files mounting
-if os.path.exists("static"):
-    app.mount("/static", StaticFiles(directory="static"), name="static")
+from pathlib import Path
 
-templates = Jinja2Templates(directory="app/templates")
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_DIR = BASE_DIR / "static"
+TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
+
+# Static files mounting
+if STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 
 # Root health alias

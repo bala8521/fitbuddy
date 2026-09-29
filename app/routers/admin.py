@@ -10,8 +10,11 @@ from app.core.security import hash_password
 import hmac
 import hashlib
 
+from pathlib import Path
+
 settings = get_settings()
-templates = Jinja2Templates(directory="app/templates")
+TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 router = APIRouter(prefix="/admin", include_in_schema=False)
 api_router = APIRouter(prefix="/api/admin", tags=["Admin"])
 
