@@ -56,12 +56,6 @@ def root_health():
     return {"status": "ok", "app": settings.APP_NAME}
 
 
-@app.get("/api", include_in_schema=False)
-@app.get("/api/index.py", include_in_schema=False)
-def api_root():
-    return RedirectResponse(url="/docs")
-
-
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 
 
