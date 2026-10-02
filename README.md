@@ -158,6 +158,17 @@ FitBuddy/
 │   ├── test_nutrition.py           # Nutrition guidance tests
 │   └── test_admin.py               # Admin auth & dashboard security tests
 │
+├── FitBuddy_Project_Structure/     # 📚 Complete 8-Phase SDLC Project Documentation
+│   ├── 1. Brainstorming & Ideation/
+│   ├── 2. Requirement Analysis/
+│   ├── 3. Project Design Phase/
+│   ├── 4. Project Planning Phase/
+│   ├── 5. Project Development Phase/
+│   ├── 6. Project Testing/
+│   ├── 7. Project Documentation/
+│   ├── 8. Project Demonstration/
+│   └── README.md
+│
 ├── .env.example                    # Environment variables template
 ├── .gitignore                      # Git exclusion rules
 ├── alembic.ini                     # Alembic migration configuration
@@ -165,6 +176,21 @@ FitBuddy/
 ├── run.py                          # Local development execution script
 └── README.md                       # Documentation
 ```
+
+---
+
+## 📚 Project Engineering Lifecycle (8 Phases)
+
+FitBuddy includes full-lifecycle documentation organized inside the [FitBuddy_Project_Structure/](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/README.md) directory:
+
+1. **[Brainstorming & Ideation](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/1.%20Brainstorming%20%26%20Ideation/problem_statement_and_vision.md)**: Problem statement, user personas, and MoSCoW feature matrix.
+2. **[Requirement Analysis](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/2.%20Requirement%20Analysis/functional_requirements.md)**: Functional & Non-Functional Requirements, Use Case specs, and Medical disclaimers.
+3. **[Project Design Phase](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/3.%20Project%20Design%20Phase/system_architecture_design.md)**: Architecture diagrams, Database ER models, REST API specs, and UI wireframes.
+4. **[Project Planning Phase](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/4.%20Project%20Planning%20Phase/project_roadmap_and_sprints.md)**: Agile sprint roadmaps, Work Breakdown Structure (WBS), and risk management.
+5. **[Project Development Phase](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/5.%20Project%20Development%20Phase/backend_architecture_and_modules.md)**: FastAPI backend walkthrough, Gemini AI prompt engineering, and ORM guides.
+6. **[Project Testing](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/6.%20Project%20Testing/test_strategy_and_plan.md)**: Test strategy, traceability matrix, Pytest execution report (31/31 passing), and security audits.
+7. **[Project Documentation](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/7.%20Project%20Documentation/user_manual_and_guide.md)**: End-user manual, Administrator guide, Developer onboarding, and DevOps deployment.
+8. **[Project Demonstration](file:///c:/Users/blsrv/OneDrive/Desktop/F/FitBuddy_Project_Structure/8.%20Project%20Demonstration/project_demo_script_and_walkthrough.md)**: 5-minute live demonstration script, UI screen showcase, and deliverables summary.
 
 ---
 
